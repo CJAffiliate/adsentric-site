@@ -1,0 +1,42 @@
+:root {
+  --color-background: #FFFFFF;
+  --color-text: #1A1A1A;
+  --color-accent: #B10000;
+  --color-highlight: #FFF4F4;
+  --color-muted: #555555;
+  --font-sans: 'Inter', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--color-text);
+  background: var(--color-background);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.hero-headline {
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-weight: 800;
+}
+
+.hero-subheadline {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--color-muted);
+  line-height: 1.6;
+} 

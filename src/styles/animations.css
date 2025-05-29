@@ -1,0 +1,88 @@
+/* Base animation styles */
+.animate-fade-in {
+  opacity: 0;
+  transform: translateY(10px);
+  will-change: opacity, transform;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slide-up {
+  opacity: 0;
+  transform: translateY(20px);
+  will-change: opacity, transform;
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  opacity: 0;
+  transform: translateX(-20px);
+  will-change: opacity, transform;
+  animation: slideInLeft 0.5s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  opacity: 0;
+  transform: translateX(20px);
+  will-change: opacity, transform;
+  animation: slideInRight 0.5s ease-out forwards;
+}
+
+.animate-scale-in {
+  opacity: 0;
+  transform: scale(0.95);
+  will-change: opacity, transform;
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+/* Stagger utility */
+.animate-stagger > * {
+  opacity: 0;
+  transform: translateY(10px);
+  will-change: opacity, transform;
+}
+
+.animate-stagger > *:nth-child(1) { animation: fadeIn 0.5s ease-out 0.1s forwards; }
+.animate-stagger > *:nth-child(2) { animation: fadeIn 0.5s ease-out 0.2s forwards; }
+.animate-stagger > *:nth-child(3) { animation: fadeIn 0.5s ease-out 0.3s forwards; }
+.animate-stagger > *:nth-child(4) { animation: fadeIn 0.5s ease-out 0.4s forwards; }
+.animate-stagger > *:nth-child(5) { animation: fadeIn 0.5s ease-out 0.5s forwards; }
+
+/* Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .animate-slide-up,
+  .animate-slide-in-left,
+  .animate-slide-in-right,
+  .animate-scale-in,
+  .animate-stagger > * {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+} 
