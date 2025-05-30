@@ -1,8 +1,9 @@
 import React from 'react'
 import NavBar from './components/NavBar'
 import Hero from './components/Hero'
-import TestimonialStrip from './components/TestimonialStrip'
-import ProcessSection from './components/ProcessSection'
+import WhatWeDoSection from './components/WhatWeDoSection'
+import GreatBusinessesSection from './components/GreatBusinessesSection'
+import ResultsShowcaseSection from './components/ResultsShowcaseSection'
 import ScrollingAdsSection from './components/ScrollingAdsSection'
 import FAQSection from './components/FAQSection'
 import AuditFormSection from './components/AuditFormSection'
@@ -21,8 +22,9 @@ function App() {
       <NavBar />
       <main style={{ flex: 1 }}>
         <Hero />
-        <TestimonialStrip />
-        <ProcessSection />
+        <WhatWeDoSection />
+        <GreatBusinessesSection />
+        <ResultsShowcaseSection />
         <ScrollingAdsSection />
         <FAQSection />
         <AuditFormSection />

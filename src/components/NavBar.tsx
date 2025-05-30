@@ -1,6 +1,7 @@
 import React from 'react';
 import HighlightBox from './HighlightBox';
 import logo from '../assets/logo.png';
+import { motion } from 'framer-motion';
 
 const NavBar: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
@@ -34,13 +35,16 @@ const NavBar: React.FC = () => {
           alignItems: 'center',
         }}
       >
-        <img
+        <motion.img
           src={logo}
           alt="Adsentric"
           style={{
             height: '32px',
             width: 'auto',
           }}
+          initial={{ opacity: 0, y: -16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.1 }}
         />
       </div>
       <div
