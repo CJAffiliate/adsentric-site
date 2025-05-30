@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "rimraf dist && tsc --project tsconfig.json && vite build",
+    "build": "rimraf dist && tsc --noEmit && vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "clean": "rimraf dist"

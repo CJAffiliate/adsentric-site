@@ -1,53 +1,33 @@
 import React from 'react';
-import logo from '../assets/logo.png';
+import Logo from '../assets/Logo.png';
 
 const Footer: React.FC = () => {
   return (
     <footer
       style={{
         background: 'var(--color-background)',
-        padding: '3.5rem 2.5rem',
+        padding: '3rem 2rem',
+        textAlign: 'center',
         borderTop: '2px solid #ececec',
       }}
     >
-      <div
+      <img
+        src={Logo}
+        alt="Adsentric"
         style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '2rem',
+          height: '28px',
+          marginBottom: '1.5rem',
+        }}
+      />
+      <p
+        style={{
+          color: '#666',
+          fontSize: '0.9rem',
+          margin: 0,
         }}
       >
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-          }}
-        >
-          <img
-            src={logo}
-            alt="Adsentric"
-            style={{
-              height: '32px',
-              width: 'auto',
-            }}
-          />
-        </div>
-        <div
-          style={{
-            fontSize: '0.95rem',
-            opacity: 0.7,
-            textAlign: 'center',
-            maxWidth: '600px',
-            lineHeight: 1.6,
-            fontFamily: 'Inter, sans-serif',
-          }}
-        >
-          © {new Date().getFullYear()} Adsentric. All rights reserved.
-        </div>
-      </div>
+        © {new Date().getFullYear()} Adsentric. All rights reserved.
+      </p>
     </footer>
   );
 };
