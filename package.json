@@ -20,7 +20,8 @@
   "description": "Adsentric - Marketing Agency Landing Page",
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "framer-motion": "^11.0.3"
   },
   "devDependencies": {
     "@types/react": "^19.1.6",
