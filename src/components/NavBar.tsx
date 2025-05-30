@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import React from 'react';
+import { motion } from 'framer-motion';
 import Logo from '../assets/Logo.png';
-import { animationClasses } from '../utils/animations';
 import HighlightBox from './HighlightBox';
 
 const NavBar: React.FC = () => {
