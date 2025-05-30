@@ -1,7 +1,6 @@
 import React from 'react';
 import HighlightBox from './HighlightBox';
 import logo from '../assets/logo.png';
-import { motion, useInView } from 'framer-motion';
 
 const Footer: React.FC = () => {
   return (
@@ -22,23 +21,21 @@ const Footer: React.FC = () => {
           gap: '2rem',
         }}
       >
-        <motion.div
-          style={{ display: 'flex', alignItems: 'center' }}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.7 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+          }}
         >
-          <motion.img
+          <img
             src={logo}
             alt="Adsentric"
-            style={{ height: '32px', width: 'auto' }}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.7 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            style={{
+              height: '32px',
+              width: 'auto',
+            }}
           />
-        </motion.div>
+        </div>
         <div
           style={{
             fontSize: '0.95rem',

@@ -2,15 +2,39 @@ import React, { useEffect, useRef } from 'react';
 import HighlightBox from './HighlightBox';
 import NotificationBubbles from './NotificationBubbles';
 import { observeElements } from '../utils/animations';
-import { motion, useInView } from 'framer-motion';
 
 const Hero: React.FC = () => {
-  const sectionRef = useRef(null);
-  const inView = useInView(sectionRef, { once: true, margin: '-100px' });
+  const titleRef = useRef<HTMLDivElement>(null);
+  const subtitleRef = useRef<HTMLDivElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const elements = [
+      titleRef.current,
+      subtitleRef.current,
+      ctaRef.current
+    ].filter(Boolean) as HTMLElement[];
+
+    // Add initial opacity 0 to prevent flash
+    elements.forEach(el => {
+      if (el) el.style.opacity = '0';
+    });
+
+    const observer = observeElements(elements, (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          requestAnimationFrame(() => {
+            entry.target.classList.add('animate-fade-in');
+          });
+        }
+      });
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section
-      ref={sectionRef}
       style={{
         minHeight: '90vh',
         display: 'flex',
@@ -23,35 +47,31 @@ const Hero: React.FC = () => {
       }}
     >
       {/* Floating Shapes Background */}
-      <motion.div
-        className="floating-shapes"
-        aria-hidden="true"
-        initial={{ opacity: 0 }}
-        animate={inView ? { opacity: 1 } : {}}
-        transition={{ duration: 1.1, delay: 0.1 }}
-      >
+      <div className="floating-shapes" aria-hidden="true">
         {/* First row of shapes */}
-        <motion.div className="shape circle" style={{ '--delay': '0s', '--duration': '20s', '--size': '60px' } as React.CSSProperties} initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.08, scale: 1 } : {}} transition={{ duration: 0.7, delay: 0.2 }} />
-        <motion.div className="shape square" style={{ '--delay': '2s', '--duration': '25s', '--size': '40px' } as React.CSSProperties} initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.08, scale: 1 } : {}} transition={{ duration: 0.7, delay: 0.3 }} />
-        <motion.div className="shape plus" style={{ '--delay': '4s', '--duration': '22s', '--size': '50px' } as React.CSSProperties} initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.08, scale: 1 } : {}} transition={{ duration: 0.7, delay: 0.4 }} />
-        <motion.div className="shape circle" style={{ '--delay': '6s', '--duration': '28s', '--size': '45px' } as React.CSSProperties} initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.08, scale: 1 } : {}} transition={{ duration: 0.7, delay: 0.5 }} />
-        <motion.div className="shape square" style={{ '--delay': '8s', '--duration': '24s', '--size': '35px' } as React.CSSProperties} initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.08, scale: 1 } : {}} transition={{ duration: 0.7, delay: 0.6 }} />
-        <motion.div className="shape plus" style={{ '--delay': '10s', '--duration': '26s', '--size': '55px' } as React.CSSProperties} initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.08, scale: 1 } : {}} transition={{ duration: 0.7, delay: 0.7 }} />
+        <div className="shape circle" style={{ '--delay': '0s', '--duration': '20s', '--size': '60px' } as React.CSSProperties} />
+        <div className="shape square" style={{ '--delay': '2s', '--duration': '25s', '--size': '40px' } as React.CSSProperties} />
+        <div className="shape plus" style={{ '--delay': '4s', '--duration': '22s', '--size': '50px' } as React.CSSProperties} />
+        <div className="shape circle" style={{ '--delay': '6s', '--duration': '28s', '--size': '45px' } as React.CSSProperties} />
+        <div className="shape square" style={{ '--delay': '8s', '--duration': '24s', '--size': '35px' } as React.CSSProperties} />
+        <div className="shape plus" style={{ '--delay': '10s', '--duration': '26s', '--size': '55px' } as React.CSSProperties} />
+        
         {/* Second row of shapes */}
-        <motion.div className="shape circle" style={{ '--delay': '1s', '--duration': '23s', '--size': '45px' } as React.CSSProperties} initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.08, scale: 1 } : {}} transition={{ duration: 0.7, delay: 0.8 }} />
-        <motion.div className="shape square" style={{ '--delay': '3s', '--duration': '27s', '--size': '50px' } as React.CSSProperties} initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.08, scale: 1 } : {}} transition={{ duration: 0.7, delay: 0.9 }} />
-        <motion.div className="shape plus" style={{ '--delay': '5s', '--duration': '21s', '--size': '40px' } as React.CSSProperties} initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.08, scale: 1 } : {}} transition={{ duration: 0.7, delay: 1.0 }} />
-        <motion.div className="shape circle" style={{ '--delay': '7s', '--duration': '25s', '--size': '55px' } as React.CSSProperties} initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.08, scale: 1 } : {}} transition={{ duration: 0.7, delay: 1.1 }} />
-        <motion.div className="shape square" style={{ '--delay': '9s', '--duration': '29s', '--size': '45px' } as React.CSSProperties} initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.08, scale: 1 } : {}} transition={{ duration: 0.7, delay: 1.2 }} />
-        <motion.div className="shape plus" style={{ '--delay': '11s', '--duration': '24s', '--size': '50px' } as React.CSSProperties} initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.08, scale: 1 } : {}} transition={{ duration: 0.7, delay: 1.3 }} />
+        <div className="shape circle" style={{ '--delay': '1s', '--duration': '23s', '--size': '45px' } as React.CSSProperties} />
+        <div className="shape square" style={{ '--delay': '3s', '--duration': '27s', '--size': '50px' } as React.CSSProperties} />
+        <div className="shape plus" style={{ '--delay': '5s', '--duration': '21s', '--size': '40px' } as React.CSSProperties} />
+        <div className="shape circle" style={{ '--delay': '7s', '--duration': '25s', '--size': '55px' } as React.CSSProperties} />
+        <div className="shape square" style={{ '--delay': '9s', '--duration': '29s', '--size': '45px' } as React.CSSProperties} />
+        <div className="shape plus" style={{ '--delay': '11s', '--duration': '24s', '--size': '50px' } as React.CSSProperties} />
+        
         {/* Third row of shapes */}
-        <motion.div className="shape circle" style={{ '--delay': '0.5s', '--duration': '26s', '--size': '50px' } as React.CSSProperties} initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.08, scale: 1 } : {}} transition={{ duration: 0.7, delay: 1.4 }} />
-        <motion.div className="shape square" style={{ '--delay': '2.5s', '--duration': '22s', '--size': '45px' } as React.CSSProperties} initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.08, scale: 1 } : {}} transition={{ duration: 0.7, delay: 1.5 }} />
-        <motion.div className="shape plus" style={{ '--delay': '4.5s', '--duration': '28s', '--size': '40px' } as React.CSSProperties} initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.08, scale: 1 } : {}} transition={{ duration: 0.7, delay: 1.6 }} />
-        <motion.div className="shape circle" style={{ '--delay': '6.5s', '--duration': '24s', '--size': '55px' } as React.CSSProperties} initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.08, scale: 1 } : {}} transition={{ duration: 0.7, delay: 1.7 }} />
-        <motion.div className="shape square" style={{ '--delay': '8.5s', '--duration': '26s', '--size': '45px' } as React.CSSProperties} initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.08, scale: 1 } : {}} transition={{ duration: 0.7, delay: 1.8 }} />
-        <motion.div className="shape plus" style={{ '--delay': '10.5s', '--duration': '23s', '--size': '50px' } as React.CSSProperties} initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.08, scale: 1 } : {}} transition={{ duration: 0.7, delay: 1.9 }} />
-      </motion.div>
+        <div className="shape circle" style={{ '--delay': '0.5s', '--duration': '26s', '--size': '50px' } as React.CSSProperties} />
+        <div className="shape square" style={{ '--delay': '2.5s', '--duration': '22s', '--size': '45px' } as React.CSSProperties} />
+        <div className="shape plus" style={{ '--delay': '4.5s', '--duration': '28s', '--size': '40px' } as React.CSSProperties} />
+        <div className="shape circle" style={{ '--delay': '6.5s', '--duration': '24s', '--size': '55px' } as React.CSSProperties} />
+        <div className="shape square" style={{ '--delay': '8.5s', '--duration': '26s', '--size': '45px' } as React.CSSProperties} />
+        <div className="shape plus" style={{ '--delay': '10.5s', '--duration': '23s', '--size': '50px' } as React.CSSProperties} />
+      </div>
 
       {/* Crimson Glow */}
       <div
@@ -69,21 +89,20 @@ const Hero: React.FC = () => {
         }}
         aria-hidden="true"
       />
-      <motion.div
+      <div
         style={{
           width: '100%',
           maxWidth: '700px',
           margin: '0 auto',
           textAlign: 'center',
           padding: '7.5rem 0 2rem 0',
+          opacity: 0,
+          animation: 'fadeUp 0.8s ease forwards',
           position: 'relative',
           zIndex: 1,
         }}
-        initial={{ opacity: 0, y: 40 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, delay: 0.2 }}
       >
-        <motion.div
+        <div
           style={{
             color: 'var(--color-accent)',
             fontWeight: 700,
@@ -92,66 +111,76 @@ const Hero: React.FC = () => {
             marginBottom: '1.1rem',
             textTransform: 'uppercase',
           }}
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.3 }}
         >
           ATTENTION BUSINESSES
-        </motion.div>
-        <motion.h1
+        </div>
+        <h1
           className="hero-headline"
           style={{
             marginBottom: '1.2rem',
             color: 'var(--color-text)',
           }}
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.4 }}
         >
           We build marketing systems that get you <HighlightBox>more customers</HighlightBox>
-        </motion.h1>
-        <motion.p
+        </h1>
+        <p
           className="hero-subheadline"
           style={{
             margin: '0 auto 2.2rem auto',
             maxWidth: '480px',
           }}
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.5 }}
         >
           We implement paid ads, bespoke landing pages (like this one) and custom CRM tools to <strong style={{ fontWeight: 700 }}>grow your customer base.</strong>
-        </motion.p>
-        <motion.div style={{ display: 'flex', justifyContent: 'center', marginTop: '2.2rem' }} initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7, delay: 0.6 }}>
+        </p>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'center',
+            gap: '1rem',
+            flexWrap: 'wrap',
+            marginBottom: '0.5rem',
+          }}
+        >
           <HighlightBox>
             <button
-              onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}
+              onClick={() => {
+                const element = document.getElementById('audit-form');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
               style={{
                 background: 'none',
-                color: '#fff',
                 border: 'none',
-                borderRadius: '6px',
+                color: 'inherit',
+                font: 'inherit',
                 fontWeight: 700,
                 fontSize: '1.1rem',
                 padding: '1.1rem 2.2rem',
-                boxShadow: 'none',
+                borderRadius: '6px',
                 cursor: 'pointer',
                 outline: 'none',
+                boxShadow: 'none',
                 display: 'flex',
+                flexDirection: 'column',
                 alignItems: 'center',
-                gap: '1rem',
-                fontFamily: 'Inter, sans-serif',
-                transition: 'background 0.2s',
+                gap: '0.2rem',
               }}
             >
-              Get Started
-              <svg width="38" height="16" viewBox="0 0 38 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 8H36" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
-                <path d="M29 2L36 8L29 14" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                Get Your Free Audit
+                <svg width="38" height="16" viewBox="0 0 38 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 8H36" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
+                  <path d="M29 2L36 8L29 14" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </span>
+              <span style={{ fontSize: '0.85rem', fontWeight: 400, color: '#fff', opacity: 0.85, marginTop: '0.15rem', lineHeight: 1, textAlign: 'center' }}>
+                (in less than 48hrs)
+              </span>
             </button>
           </HighlightBox>
-        </motion.div>
+        </div>
         {/* Notification Bubbles below CTA */}
         <NotificationBubbles />
         <style>
@@ -318,7 +347,7 @@ const Hero: React.FC = () => {
             .shape:nth-child(18) { --x: 0.7; left: 80%; }
           `}
         </style>
-      </motion.div>
+      </div>
     </section>
   );
 };

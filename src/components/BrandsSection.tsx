@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion, useInView } from 'framer-motion';
 
 const brandLogos = [
   // Leaf logo
@@ -66,12 +65,8 @@ const BrandsSection: React.FC = () => {
         }}
       >
         {brandLogos.map((logo, i) => (
-          <motion.div
+          <div
             key={i}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.7 }}
-            transition={{ duration: 0.7, delay: 0.1 + i * 0.12 }}
             style={{
               width: '120px',
               height: '60px',
@@ -84,7 +79,7 @@ const BrandsSection: React.FC = () => {
             }}
           >
             {logo}
-          </motion.div>
+          </div>
         ))}
       </div>
       <style>

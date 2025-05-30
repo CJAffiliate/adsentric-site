@@ -157,11 +157,12 @@ const ResultsShowcaseSection: React.FC = () => {
         }}>
           {/* Phone Mockup */}
           <motion.div
-            initial={{ opacity: 0, y: 40, scale: 0.95 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, amount: 0.7 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            style={{ flex: '0 0 320px' }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            style={{
+              flex: '0 0 320px'
+            }}
           >
             <div
               style={{
@@ -188,11 +189,7 @@ const ResultsShowcaseSection: React.FC = () => {
                   zIndex: 2
                 }}
               />
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, amount: 0.7 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
+              <div
                 style={{
                   width: '100%',
                   height: '100%',
@@ -216,7 +213,7 @@ const ResultsShowcaseSection: React.FC = () => {
                     target.parentElement!.innerHTML = '<div style="color: #7A0011; font-weight: 700; font-size: 1.2rem; text-align: center; padding: 2rem;">Screenshot coming soon</div>';
                   }}
                 />
-              </motion.div>
+              </div>
             </div>
           </motion.div>
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import { animationClasses } from '../utils/animations';
 import HighlightBox from './HighlightBox';
-import { motion, useInView } from 'framer-motion';
 
 const services = [
   {
@@ -147,15 +146,9 @@ const WhatWeDoSection: React.FC = () => (
             (e.currentTarget as HTMLDivElement).style.transform = 'none';
           }}
         >
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.7 }}
-            transition={{ duration: 0.7, delay: 0.1 + i * 0.15 }}
-            style={{ marginBottom: '1.1rem', minHeight: 48 }}
-          >
+          <div style={{ marginBottom: '1.3rem', minHeight: 48, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             {React.cloneElement(service.icon as React.ReactElement, { width: 48, height: 48 })}
-          </motion.div>
+          </div>
           <div style={{ fontWeight: 700, fontSize: '1.13rem', marginBottom: '0.7rem', letterSpacing: '0.01em', fontFamily: 'Inter, sans-serif' }}>{service.title}</div>
           <div style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.92)', fontWeight: 500, lineHeight: 1.5 }}>{service.benefit}</div>
         </div>

@@ -1,6 +1,5 @@
 import React from 'react';
 import HighlightBox from './HighlightBox';
-import { motion, useInView } from 'framer-motion';
 
 // Import images with error handling
 const importImage = (path: string) => {
@@ -69,14 +68,7 @@ const ScrollingAdsSection: React.FC = () => {
           <div style={{ position: 'relative', width: '100%', height: '120px', marginBottom: '1.5rem' }}>
             <div className="marquee-row" style={{ display: 'flex', alignItems: 'center', height: '100%', animation: 'marquee-left 18s linear infinite' }}>
               {adImages.concat(adImages).map((src, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.7 }}
-                  transition={{ duration: 0.7, delay: 0.1 + (i % adImages.length) * 0.08 }}
-                  style={{ minWidth: '120px', width: '120px', height: '120px', margin: '0 1.2rem', background: '#f3f3f3', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 2px 8px 0 rgba(0,0,0,0.07)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-                >
+                <div key={i} style={{ minWidth: '120px', width: '120px', height: '120px', margin: '0 1.2rem', background: '#f3f3f3', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 2px 8px 0 rgba(0,0,0,0.07)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <img 
                     src={src} 
                     alt={`Ad example ${i + 1}`} 
@@ -86,7 +78,7 @@ const ScrollingAdsSection: React.FC = () => {
                       target.style.display = 'none';
                     }}
                   />
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
@@ -94,14 +86,7 @@ const ScrollingAdsSection: React.FC = () => {
           <div style={{ position: 'relative', width: '100%', height: '120px' }}>
             <div className="marquee-row" style={{ display: 'flex', alignItems: 'center', height: '100%', animation: 'marquee-right 18s linear infinite' }}>
               {adImages.concat(adImages).map((src, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.7 }}
-                  transition={{ duration: 0.7, delay: 0.1 + (i % adImages.length) * 0.08 }}
-                  style={{ minWidth: '120px', width: '120px', height: '120px', margin: '0 1.2rem', background: '#f3f3f3', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 2px 8px 0 rgba(0,0,0,0.07)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-                >
+                <div key={i} style={{ minWidth: '120px', width: '120px', height: '120px', margin: '0 1.2rem', background: '#f3f3f3', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 2px 8px 0 rgba(0,0,0,0.07)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <img 
                     src={src} 
                     alt={`Ad example ${i + 1}`} 
@@ -111,7 +96,7 @@ const ScrollingAdsSection: React.FC = () => {
                       target.style.display = 'none';
                     }}
                   />
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>

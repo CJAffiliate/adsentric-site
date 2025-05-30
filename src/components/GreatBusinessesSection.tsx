@@ -1,7 +1,6 @@
 import React from 'react';
 import HighlightBox from './HighlightBox';
 import { animationClasses } from '../utils/animations';
-import { motion, useInView } from 'framer-motion';
 
 const bullets = [
   {
@@ -150,15 +149,7 @@ const GreatBusinessesSection: React.FC = () => (
           >
             {/* Crimson accent line at top */}
             <div style={{ height: 5, width: 48, background: 'linear-gradient(90deg, #7A0011 0%, #B10000 100%)', borderRadius: 3, marginBottom: 18 }} />
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.7 }}
-              transition={{ duration: 0.7, delay: 0.1 + i * 0.15 }}
-              style={{ marginBottom: '1.1rem', minHeight: 32 }}
-            >
-              {b.icon}
-            </motion.div>
+            <div style={{ marginBottom: '1.1rem', minHeight: 32 }}>{b.icon}</div>
             <div style={{ fontWeight: 700, fontSize: '1.13rem', marginBottom: '0.7rem', letterSpacing: '0.01em', fontFamily: 'Inter, sans-serif', color: '#1a1a1a' }}>{b.heading}</div>
             <div style={{ fontSize: '1rem', color: '#1a1a1a', fontWeight: 500, lineHeight: 1.5 }}>{b.text}</div>
           </div>
