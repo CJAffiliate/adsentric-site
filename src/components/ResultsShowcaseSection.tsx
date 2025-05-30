@@ -409,6 +409,56 @@ const ResultsShowcaseSection: React.FC = () => {
           div[style*="marginBottom: 1.5rem"] {
             margin-bottom: 0.8rem !important;
           }
+
+          img {
+            object-fit: contain !important;
+            object-position: center !important;
+            padding: 0.4rem !important;
+          }
+        }
+
+        @media (max-width: 360px) {
+          section {
+            padding: 1.8rem 0.5rem !important;
+          }
+
+          div[style*="font-size: 2.1rem"] {
+            font-size: 1.1rem !important;
+            margin-bottom: 1.2rem !important;
+            padding: 0 0.5rem !important;
+          }
+
+          div[style*="width: 320px"] {
+            width: 200px !important;
+            height: 400px !important;
+            min-width: 200px !important;
+            min-height: 400px !important;
+          }
+
+          div[style*="font-size: 2.8rem"] {
+            font-size: 1.4rem !important;
+          }
+
+          div[style*="font-size: 1.1rem"] {
+            font-size: 0.85rem !important;
+          }
+
+          div[style*="padding: 2.5rem"] {
+            padding: 0.8rem !important;
+          }
+
+          div[style*="fontSize: 1.05rem"] {
+            font-size: 0.85rem !important;
+            line-height: 1.3 !important;
+          }
+
+          div[style*="marginBottom: 1.5rem"] {
+            margin-bottom: 0.6rem !important;
+          }
+
+          img {
+            padding: 0.3rem !important;
+          }
         }
       `}</style>
     </section>

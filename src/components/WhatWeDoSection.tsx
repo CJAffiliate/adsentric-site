@@ -1,38 +1,13 @@
 import React from 'react';
-import { animationClasses } from '../utils/animations';
-import HighlightBox from './HighlightBox';
 import { motion } from 'framer-motion';
+import HighlightBox from './HighlightBox';
+import { AdIcon, LandingPageIcon, CRMIcon } from './Icons';
 
 interface ServiceCard {
   title: string;
   description: string;
   icon: React.ReactNode;
 }
-
-const AdIcon = () => (
-  <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="6" y="10" width="26" height="18" rx="4" fill="#fff" fillOpacity="0.13" stroke="#fff" strokeWidth="2.2" />
-    <rect x="11" y="15" width="16" height="8" rx="2" fill="#fff" fillOpacity="0.32" />
-    <circle cx="29" cy="19" r="2.5" fill="#fff" />
-  </svg>
-);
-
-const LandingPageIcon = () => (
-  <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="7" y="9" width="24" height="20" rx="3.5" fill="#fff" fillOpacity="0.13" stroke="#fff" strokeWidth="2.2" />
-    <rect x="11" y="13" width="16" height="3" rx="1.5" fill="#fff" fillOpacity="0.32" />
-    <rect x="11" y="18" width="10" height="2.5" rx="1.25" fill="#fff" fillOpacity="0.32" />
-    <rect x="11" y="22" width="7" height="2.5" rx="1.25" fill="#fff" fillOpacity="0.32" />
-  </svg>
-);
-
-const CRMIcon = () => (
-  <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="8" y="12" width="22" height="14" rx="3" fill="#fff" fillOpacity="0.13" stroke="#fff" strokeWidth="2.2" />
-    <circle cx="19" cy="19" r="3.5" fill="#fff" fillOpacity="0.32" />
-    <rect x="13" y="24" width="12" height="2" rx="1" fill="#fff" fillOpacity="0.32" />
-  </svg>
-);
 
 const services: ServiceCard[] = [
   {
@@ -54,10 +29,11 @@ const services: ServiceCard[] = [
 
 const WhatWeDoSection: React.FC = () => (
   <section
+    id="what-we-do"
     style={{
       background: 'rgb(122, 0, 17)',
       color: '#fff',
-      padding: '4.5rem 0 3.5rem 0',
+      padding: 'clamp(3rem, 6vw, 4.5rem) 0 clamp(2.5rem, 5vw, 3.5rem) 0',
       width: '100%',
       display: 'flex',
       flexDirection: 'column',
@@ -69,17 +45,17 @@ const WhatWeDoSection: React.FC = () => (
     <div
       style={{
         fontWeight: 800,
-        fontSize: '2.1rem',
+        fontSize: 'clamp(1.4rem, 4vw, 2.1rem)',
         textAlign: 'center',
         fontFamily: 'Inter, sans-serif',
-        marginBottom: '1.1rem',
+        marginBottom: 'clamp(0.8rem, 2vw, 1.1rem)',
         letterSpacing: '0.01em',
         lineHeight: 1.13,
-        padding: '0 1.5rem',
+        padding: '0 clamp(1rem, 3vw, 1.5rem)',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        gap: '0.5rem',
+        gap: 'clamp(0.3rem, 1vw, 0.5rem)',
         flexWrap: 'wrap',
       }}
     >
@@ -89,200 +65,100 @@ const WhatWeDoSection: React.FC = () => (
       style={{
         color: 'rgba(255,255,255,0.92)',
         fontWeight: 500,
-        fontSize: '1.15rem',
-        marginBottom: '2.8rem',
+        fontSize: 'clamp(0.9rem, 2.5vw, 1.15rem)',
+        marginBottom: 'clamp(2rem, 4vw, 2.8rem)',
         textAlign: 'center',
         fontFamily: 'Inter, sans-serif',
-        maxWidth: '520px',
-        padding: '0 1.5rem',
+        maxWidth: 'clamp(280px, 90vw, 520px)',
+        padding: '0 clamp(1rem, 3vw, 1.5rem)',
         lineHeight: 1.5,
       }}
     >
       Tested. Optimised. Perfected.
     </div>
+
     <div
-      className="animate-stagger"
       style={{
-        display: 'flex',
-        flexWrap: 'nowrap',
-        justifyContent: 'center',
-        gap: '2.5rem',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(clamp(280px, 30vw, 320px), 1fr))',
+        gap: 'clamp(1.5rem, 3vw, 2.5rem)',
         width: '100%',
-        maxWidth: '1280px',
-        margin: '0 auto',
+        maxWidth: '1200px',
+        padding: '0 clamp(1rem, 3vw, 2rem)',
       }}
     >
-      {services.map((service) => (
-        <div
-          key={service.title}
-          className={animationClasses.fadeIn}
+      {services.map((service, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
           style={{
-            background: 'rgba(255,255,255,0.13)',
-            borderRadius: '22px',
-            boxShadow: '0 6px 32px 0 rgba(0,0,0,0.13)',
-            border: '1.5px solid rgba(255,255,255,0.22)',
-            padding: '2.7rem 2.2rem 2.1rem 2.2rem',
-            minWidth: '240px',
-            maxWidth: '300px',
-            flex: '1 1 260px',
+            background: 'rgba(255,255,255,0.05)',
+            borderRadius: '16px',
+            padding: 'clamp(1.7rem, 3vw, 2.7rem) clamp(1.2rem, 2.5vw, 2.2rem)',
+            border: '1px solid rgba(255,255,255,0.1)',
+            backdropFilter: 'blur(10px)',
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center',
-            textAlign: 'center',
-            transition: 'box-shadow 0.22s, transform 0.22s',
-            position: 'relative',
-            overflow: 'hidden',
-            backdropFilter: 'blur(8px)',
-            WebkitBackdropFilter: 'blur(8px)',
-            cursor: 'pointer',
-            outline: 'none',
-            willChange: 'transform, box-shadow',
-            zIndex: 1,
-          }}
-          tabIndex={0}
-          onMouseEnter={e => {
-            (e.currentTarget as HTMLDivElement).style.boxShadow = '0 10px 36px 0 rgba(0,0,0,0.18)';
-            (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-4px) scale(1.025)';
-          }}
-          onMouseLeave={e => {
-            (e.currentTarget as HTMLDivElement).style.boxShadow = '0 6px 32px 0 rgba(0,0,0,0.13)';
-            (e.currentTarget as HTMLDivElement).style.transform = 'none';
+            gap: 'clamp(1rem, 2vw, 1.3rem)',
+            minWidth: 'clamp(240px, 30vw, 300px)',
+            maxWidth: 'clamp(280px, 90vw, 320px)',
+            margin: '0 auto',
           }}
         >
-          <div style={{ marginBottom: '1.3rem', minHeight: 48, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            {React.cloneElement(service.icon as React.ReactElement, { width: 48, height: 48 })}
+          <div
+            style={{
+              width: 'clamp(40px, 6vw, 48px)',
+              height: 'clamp(40px, 6vw, 48px)',
+              background: 'rgba(255,255,255,0.1)',
+              borderRadius: '12px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginBottom: 'clamp(0.8rem, 1.5vw, 1.3rem)',
+            }}
+          >
+            {service.icon}
           </div>
-          <div style={{ fontWeight: 700, fontSize: '1.13rem', marginBottom: '0.7rem', letterSpacing: '0.01em', fontFamily: 'Inter, sans-serif' }}>{service.title}</div>
-          <div style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.92)', fontWeight: 500, lineHeight: 1.5 }}>{service.description}</div>
-        </div>
+          <div
+            style={{
+              fontSize: 'clamp(1rem, 2.2vw, 1.13rem)',
+              fontWeight: 600,
+              marginBottom: 'clamp(0.4rem, 1vw, 0.5rem)',
+            }}
+          >
+            {service.title}
+          </div>
+          <div
+            style={{
+              fontSize: 'clamp(0.9rem, 2vw, 1rem)',
+              lineHeight: 1.5,
+              opacity: 0.9,
+            }}
+          >
+            {service.description}
+          </div>
+        </motion.div>
       ))}
     </div>
-    {/* Subtle white glow at bottom */}
+
+    {/* Red Glow */}
     <div
       style={{
         position: 'absolute',
+        top: '50%',
         left: '50%',
-        bottom: 0,
-        transform: 'translateX(-50%)',
-        width: '1200px',
-        height: '320px',
+        transform: 'translate(-50%, -50%)',
+        width: 'clamp(300px, 80vw, 800px)',
+        height: 'clamp(150px, 40vw, 400px)',
+        background: 'radial-gradient(circle at center, rgba(255,255,255,0.15) 0%, transparent 70%)',
+        filter: 'blur(40px)',
+        zIndex: 0,
         pointerEvents: 'none',
-        zIndex: 1,
-        background: 'radial-gradient(ellipse at 50% 100%, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.10) 40%, transparent 80%)',
-        filter: 'blur(44px)',
       }}
       aria-hidden="true"
     />
-    <div
-      style={{
-        color: 'rgba(255,255,255,0.85)',
-        fontWeight: 500,
-        fontSize: '1.05rem',
-        marginTop: '2.8rem',
-        textAlign: 'center',
-        fontFamily: 'Inter, sans-serif',
-        letterSpacing: '0.01em',
-        opacity: 0.92,
-      }}
-    >
-      It's that simple.
-    </div>
-    <style>{`
-      @media (max-width: 1200px) {
-        div[style*='flex-wrap: nowrap'] {
-          flex-wrap: wrap !important;
-          gap: 2rem !important;
-        }
-      }
-
-      @media (max-width: 900px) {
-        section {
-          padding: 3.5rem 1rem !important;
-        }
-
-        div[style*='font-size: 2.1rem'] {
-          font-size: 1.5rem !important;
-          margin-bottom: 1rem !important;
-          padding: 0 1rem !important;
-        }
-
-        div[style*='font-size: 1.15rem'] {
-          font-size: 1rem !important;
-          margin-bottom: 2rem !important;
-          padding: 0 1.5rem !important;
-        }
-
-        div[style*='gap: 2.5rem'] {
-          gap: 1.5rem !important;
-          padding: 0 1rem !important;
-        }
-
-        div[style*='padding: 2.7rem 2.2rem 2.1rem 2.2rem'] {
-          padding: 1.7rem 1.2rem 1.4rem 1.2rem !important;
-          min-width: 280px !important;
-          max-width: 100% !important;
-        }
-      }
-
-      @media (max-width: 600px) {
-        section {
-          padding: 3rem 0.8rem !important;
-        }
-
-        div[style*='font-size: 2.1rem'] {
-          font-size: 1.3rem !important;
-          margin-bottom: 0.8rem !important;
-          padding: 0 0.8rem !important;
-        }
-
-        div[style*='font-size: 1.15rem'] {
-          font-size: 0.95rem !important;
-          margin-bottom: 1.5rem !important;
-          padding: 0 1rem !important;
-        }
-
-        div[style*='gap: 2.5rem'] {
-          gap: 1rem !important;
-          padding: 0 0.8rem !important;
-        }
-
-        div[style*='padding: 2.7rem 2.2rem 2.1rem 2.2rem'] {
-          padding: 1.5rem 1rem 1.2rem 1rem !important;
-          min-width: 100% !important;
-          max-width: 100% !important;
-          margin: 0 !important;
-        }
-
-        div[style*='minWidth: 240px'] {
-          min-width: 100% !important;
-          max-width: 100% !important;
-          margin: 0 !important;
-        }
-
-        div[style*='maxWidth: 300px'] {
-          max-width: 100% !important;
-        }
-
-        svg {
-          width: 40px !important;
-          height: 40px !important;
-        }
-
-        div[style*='marginBottom: 1.3rem'] {
-          margin-bottom: 1rem !important;
-        }
-
-        div[style*='fontSize: 1.13rem'] {
-          font-size: 1.1rem !important;
-          margin-bottom: 0.5rem !important;
-        }
-
-        div[style*='fontSize: 1rem'] {
-          font-size: 0.95rem !important;
-          line-height: 1.5 !important;
-        }
-      }
-    `}</style>
   </section>
 );
 

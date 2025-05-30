@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import HighlightBox from './HighlightBox';
 
 // Import images with error handling
@@ -14,215 +15,100 @@ const importImage = (path: string) => {
 const adImages = Array.from({ length: 8 }, (_, i) => importImage(`${i + 1}.png`));
 
 const ScrollingAdsSection: React.FC = () => {
+  const ads = [
+    'Google Ads',
+    'Facebook Ads',
+    'Instagram Ads',
+    'TikTok Ads',
+    'LinkedIn Ads',
+    'Twitter Ads',
+    'Pinterest Ads',
+    'YouTube Ads',
+    'Snapchat Ads',
+    'Reddit Ads'
+  ];
+
   return (
-    <>
-      <section
+    <section
+      style={{
+        background: 'rgb(122, 0, 17)',
+        color: '#fff',
+        padding: 'clamp(1.5rem, 3vw, 2.5rem) 0',
+        width: '100%',
+        overflow: 'hidden',
+        position: 'relative',
+      }}
+    >
+      <div
         style={{
-          background: '#fff',
-          padding: '4rem 0 3rem 0',
-          width: '100%',
           display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          position: 'relative',
-          overflow: 'hidden',
+          gap: 'clamp(1.5rem, 3vw, 2.5rem)',
+          animation: 'scroll 30s linear infinite',
+          whiteSpace: 'nowrap',
+          width: 'fit-content',
         }}
       >
-        <div
-          style={{
-            fontWeight: 800,
-            fontSize: '2rem',
-            textAlign: 'center',
-            fontFamily: 'Inter, sans-serif',
-            marginBottom: '1.2rem',
-            color: 'var(--color-text)',
-            padding: '0 1.5rem',
-          }}
-        >
-          With ads <HighlightBox>like these</HighlightBox>?
-        </div>
-        <div
-          style={{
-            color: '#555',
-            fontWeight: 500,
-            fontSize: '1.15rem',
-            marginBottom: '2.2rem',
-            textAlign: 'center',
-            fontFamily: 'Inter, sans-serif',
-            maxWidth: '520px',
-            padding: '0 1.5rem',
-          }}
-        >
-          Don't waste thousands on testing, we already know what works.
-        </div>
-        {/* Scrolling ads rows */}
-        <div style={{ width: '100%', overflow: 'hidden', maxWidth: '1200px', position: 'relative', zIndex: 2 }}>
-          {/* Top row: left to right */}
-          <div style={{ position: 'relative', width: '100%', height: '120px', marginBottom: '1.5rem' }}>
-            <div className="marquee-row" style={{ display: 'flex', alignItems: 'center', height: '100%', animation: 'marquee-left 18s linear infinite' }}>
-              {adImages.concat(adImages).map((src, i) => (
-                <div key={i} style={{ minWidth: '120px', width: '120px', height: '120px', margin: '0 1.2rem', background: '#f3f3f3', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 2px 8px 0 rgba(0,0,0,0.07)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <img 
-                    src={src} 
-                    alt={`Ad example ${i + 1}`} 
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                    }}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-          {/* Bottom row: right to left */}
-          <div style={{ position: 'relative', width: '100%', height: '120px' }}>
-            <div className="marquee-row" style={{ display: 'flex', alignItems: 'center', height: '100%', animation: 'marquee-right 18s linear infinite' }}>
-              {adImages.concat(adImages).map((src, i) => (
-                <div key={i} style={{ minWidth: '120px', width: '120px', height: '120px', margin: '0 1.2rem', background: '#f3f3f3', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 2px 8px 0 rgba(0,0,0,0.07)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <img 
-                    src={src} 
-                    alt={`Ad example ${i + 1}`} 
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                    }}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        {[...ads, ...ads].map((ad, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            style={{
+              fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)',
+              fontWeight: 600,
+              color: 'rgba(255,255,255,0.9)',
+              padding: 'clamp(0.5rem, 1vw, 0.8rem) clamp(1rem, 2vw, 1.5rem)',
+              background: 'rgba(255,255,255,0.1)',
+              borderRadius: 'clamp(8px, 1.5vw, 12px)',
+              backdropFilter: 'blur(8px)',
+              border: '1px solid rgba(255,255,255,0.15)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 'clamp(0.5rem, 1vw, 0.8rem)',
+            }}
+          >
+            <span>✨</span>
+            {ad}
+          </motion.div>
+        ))}
+      </div>
 
-        {/* Crimson Glow at Bottom */}
-        <div
-          style={{
-            position: 'absolute',
-            left: '50%',
-            bottom: 0,
-            transform: 'translateX(-50%)',
-            width: '1200px',
-            height: '320px',
-            pointerEvents: 'none',
-            zIndex: 1,
-            background: 'radial-gradient(ellipse at 50% 100%, rgba(177,0,0,0.38) 0%, rgba(177,0,0,0.18) 40%, transparent 80%)',
-            filter: 'blur(44px)',
-          }}
-          aria-hidden="true"
-        />
-
-        <style>
-          {`
-            @keyframes marquee-left {
-              0% { transform: translateX(0); }
-              100% { transform: translateX(-50%); }
+      <style>
+        {`
+          @keyframes scroll {
+            0% {
+              transform: translateX(0);
             }
-            @keyframes marquee-right {
-              0% { transform: translateX(-50%); }
-              100% { transform: translateX(0); }
+            100% {
+              transform: translateX(-50%);
             }
-            
-            @media (max-width: 768px) {
-              section {
-                padding: 3rem 1rem !important;
-              }
-              
-              div[style*="fontSize: '2rem'"] {
-                font-size: 1.6rem !important;
-                margin-bottom: 1rem !important;
-                padding: 0 1rem !important;
-                line-height: 1.3 !important;
-              }
-              
-              div[style*="fontSize: '1.15rem'"] {
-                font-size: 1rem !important;
-                margin-bottom: 1.5rem !important;
-                padding: 0 1.5rem !important;
-                line-height: 1.5 !important;
-              }
-              
-              div[style*="height: '120px'"] {
-                height: 100px !important;
-                margin-bottom: 1rem !important;
-              }
-              
-              div[style*="minWidth: '120px'"] {
-                min-width: 100px !important;
-                width: 100px !important;
-                height: 100px !important;
-                margin: 0 0.8rem !important;
-              }
+          }
 
-              img {
-                object-fit: contain !important;
-                object-position: center !important;
-                padding: 0.5rem !important;
+          @media (max-width: 768px) {
+            @keyframes scroll {
+              0% {
+                transform: translateX(0);
               }
-
-              button[style*="padding: '1.1rem 2.2rem'"] {
-                padding: 0.9rem 1.8rem !important;
-                font-size: 1rem !important;
-                width: 100% !important;
-                max-width: 280px !important;
-              }
-
-              button svg {
-                width: 32px !important;
-                height: 14px !important;
+              100% {
+                transform: translateX(-50%);
               }
             }
-            
-            @media (max-width: 480px) {
-              section {
-                padding: 2.5rem 0.8rem !important;
-              }
-              
-              div[style*="fontSize: '2rem'"] {
-                font-size: 1.4rem !important;
-                margin-bottom: 0.8rem !important;
-                padding: 0 0.8rem !important;
-              }
-              
-              div[style*="fontSize: '1.15rem'"] {
-                font-size: 0.9rem !important;
-                margin-bottom: 1.2rem !important;
-                padding: 0 1rem !important;
-              }
-              
-              div[style*="height: '120px'"] {
-                height: 90px !important;
-                margin-bottom: 0.8rem !important;
-              }
-              
-              div[style*="minWidth: '120px'"] {
-                min-width: 90px !important;
-                width: 90px !important;
-                height: 90px !important;
-                margin: 0 0.6rem !important;
-              }
+          }
 
-              img {
-                object-fit: contain !important;
-                object-position: center !important;
-                padding: 0.4rem !important;
+          @media (max-width: 480px) {
+            @keyframes scroll {
+              0% {
+                transform: translateX(0);
               }
-
-              button[style*="padding: '1.1rem 2.2rem'"] {
-                padding: 0.8rem 1.5rem !important;
-                font-size: 0.95rem !important;
-                max-width: 240px !important;
-              }
-
-              button svg {
-                width: 28px !important;
-                height: 12px !important;
+              100% {
+                transform: translateX(-50%);
               }
             }
-          `}
-        </style>
-      </section>
-    </>
+          }
+        `}
+      </style>
+    </section>
   );
 };
 

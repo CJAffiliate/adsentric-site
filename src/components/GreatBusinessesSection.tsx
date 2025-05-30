@@ -331,15 +331,36 @@ const GreatBusinessesSection: React.FC = () => (
         div[style*='font-size: 2.1rem'] {
           font-size: 1.3rem !important;
           padding: 0 0.6rem !important;
+          margin-bottom: 0.6rem !important;
         }
 
         div[style*='font-size: 1.15rem'] {
           font-size: 0.9rem !important;
           padding: 0 0.8rem !important;
+          margin-bottom: 1.2rem !important;
         }
 
         div[style*='padding: 2.5rem 1.7rem 2.1rem 1.7rem'] {
           padding: 1.2rem 1rem 1rem 1rem !important;
+        }
+
+        svg {
+          width: 32px !important;
+          height: 32px !important;
+        }
+
+        div[style*='marginBottom: 1.1rem'] {
+          margin-bottom: 0.6rem !important;
+        }
+
+        div[style*='fontSize: 1.13rem'] {
+          font-size: 1rem !important;
+          margin-bottom: 0.4rem !important;
+        }
+
+        div[style*='fontSize: 1rem'] {
+          font-size: 0.9rem !important;
+          line-height: 1.4 !important;
         }
 
         button[style*='padding: 1.1rem 2.2rem'] {
