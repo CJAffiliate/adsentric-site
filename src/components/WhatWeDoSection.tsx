@@ -1,70 +1,54 @@
 import React from 'react';
 import { animationClasses } from '../utils/animations';
 import HighlightBox from './HighlightBox';
+import { motion } from 'framer-motion';
 
 interface ServiceCard {
-  icon: React.ReactNode;
   title: string;
   description: string;
-  benefit: string;
+  icon: React.ReactNode;
 }
+
+const AdIcon = () => (
+  <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="6" y="10" width="26" height="18" rx="4" fill="#fff" fillOpacity="0.13" stroke="#fff" strokeWidth="2.2" />
+    <rect x="11" y="15" width="16" height="8" rx="2" fill="#fff" fillOpacity="0.32" />
+    <circle cx="29" cy="19" r="2.5" fill="#fff" />
+  </svg>
+);
+
+const LandingPageIcon = () => (
+  <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="7" y="9" width="24" height="20" rx="3.5" fill="#fff" fillOpacity="0.13" stroke="#fff" strokeWidth="2.2" />
+    <rect x="11" y="13" width="16" height="3" rx="1.5" fill="#fff" fillOpacity="0.32" />
+    <rect x="11" y="18" width="10" height="2.5" rx="1.25" fill="#fff" fillOpacity="0.32" />
+    <rect x="11" y="22" width="7" height="2.5" rx="1.25" fill="#fff" fillOpacity="0.32" />
+  </svg>
+);
+
+const CRMIcon = () => (
+  <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="8" y="12" width="22" height="14" rx="3" fill="#fff" fillOpacity="0.13" stroke="#fff" strokeWidth="2.2" />
+    <circle cx="19" cy="19" r="3.5" fill="#fff" fillOpacity="0.32" />
+    <rect x="13" y="24" width="12" height="2" rx="1" fill="#fff" fillOpacity="0.32" />
+  </svg>
+);
 
 const services: ServiceCard[] = [
   {
-    icon: <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 2C8.268 2 2 8.268 2 16C2 23.732 8.268 30 16 30C23.732 30 30 23.732 30 16C30 8.268 23.732 2 16 2ZM16 28C9.373 28 4 22.627 4 16C4 9.373 9.373 4 16 4C22.627 4 28 9.373 28 16C28 22.627 22.627 28 16 28Z" fill="#7A0011"/>
-    </svg>,
-    title: "Landing Page Design",
-    description: "Create high-converting landing pages that turn visitors into customers.",
-    benefit: "Increase your conversion rate by up to 300% with our proven landing page designs."
-  },
-  {
     title: 'Paid Ads',
-    icon: (
-      <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="6" y="10" width="26" height="18" rx="4" fill="#fff" fillOpacity="0.13" stroke="#fff" strokeWidth="2.2" />
-        <rect x="11" y="15" width="16" height="8" rx="2" fill="#fff" fillOpacity="0.32" />
-        <circle cx="29" cy="19" r="2.5" fill="#fff" />
-      </svg>
-    ),
-    description: "Create and optimize high-performing ad campaigns across multiple platforms.",
-    benefit: 'Drive the RIGHT kind of traffic, through world class ad creatives'
+    description: 'We create and manage high-converting ad campaigns across all major platforms.',
+    icon: <AdIcon />
   },
   {
     title: 'Bespoke Landing Pages',
-    icon: (
-      <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="7" y="9" width="24" height="20" rx="3.5" fill="#fff" fillOpacity="0.13" stroke="#fff" strokeWidth="2.2" />
-        <rect x="11" y="13" width="16" height="3" rx="1.5" fill="#fff" fillOpacity="0.32" />
-        <rect x="11" y="18" width="10" height="2.5" rx="1.25" fill="#fff" fillOpacity="0.32" />
-        <rect x="11" y="22" width="7" height="2.5" rx="1.25" fill="#fff" fillOpacity="0.32" />
-      </svg>
-    ),
-    description: "Design and develop custom landing pages optimized for conversion.",
-    benefit: 'This traffic then lands to our bespoke landing pages (like this one)'
+    description: 'Custom-designed landing pages that convert visitors into customers.',
+    icon: <LandingPageIcon />
   },
   {
-    title: 'CRM & Lead Nurturing',
-    icon: (
-      <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="8" y="12" width="22" height="14" rx="3" fill="#fff" fillOpacity="0.13" stroke="#fff" strokeWidth="2.2" />
-        <circle cx="19" cy="19" r="3.5" fill="#fff" fillOpacity="0.32" />
-        <rect x="13" y="24" width="12" height="2" rx="1" fill="#fff" fillOpacity="0.32" />
-      </svg>
-    ),
-    description: "Set up and manage customer relationship management systems.",
-    benefit: 'We ensure leads and prospects are nurtured into paying customers'
-  },
-  {
-    title: 'Retargeting Email Campaigns',
-    icon: (
-      <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="7" y="12" width="24" height="14" rx="3" fill="#fff" fillOpacity="0.13" stroke="#fff" strokeWidth="2.2" />
-        <path d="M9 14l10 8 10-8" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
-    description: "Create automated email sequences to re-engage potential customers.",
-    benefit: 'Smart email flows that re-engage and convert.'
+    title: 'CRM Tools',
+    description: 'Custom CRM solutions to streamline your customer management process.',
+    icon: <CRMIcon />
   }
 ];
 
@@ -169,7 +153,7 @@ const WhatWeDoSection: React.FC = () => (
             {React.cloneElement(service.icon as React.ReactElement, { width: 48, height: 48 })}
           </div>
           <div style={{ fontWeight: 700, fontSize: '1.13rem', marginBottom: '0.7rem', letterSpacing: '0.01em', fontFamily: 'Inter, sans-serif' }}>{service.title}</div>
-          <div style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.92)', fontWeight: 500, lineHeight: 1.5 }}>{service.benefit}</div>
+          <div style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.92)', fontWeight: 500, lineHeight: 1.5 }}>{service.description}</div>
         </div>
       ))}
     </div>
@@ -207,40 +191,95 @@ const WhatWeDoSection: React.FC = () => (
       @media (max-width: 1200px) {
         div[style*='flex-wrap: nowrap'] {
           flex-wrap: wrap !important;
+          gap: 2rem !important;
         }
       }
+
       @media (max-width: 900px) {
+        section {
+          padding: 3.5rem 1rem !important;
+        }
+
         div[style*='font-size: 2.1rem'] {
           font-size: 1.5rem !important;
+          margin-bottom: 1rem !important;
+          padding: 0 1rem !important;
         }
+
         div[style*='font-size: 1.15rem'] {
           font-size: 1rem !important;
+          margin-bottom: 2rem !important;
+          padding: 0 1.5rem !important;
         }
+
         div[style*='gap: 2.5rem'] {
           gap: 1.5rem !important;
+          padding: 0 1rem !important;
         }
+
         div[style*='padding: 2.7rem 2.2rem 2.1rem 2.2rem'] {
           padding: 1.7rem 1.2rem 1.4rem 1.2rem !important;
+          min-width: 280px !important;
+          max-width: 100% !important;
         }
       }
+
       @media (max-width: 600px) {
+        section {
+          padding: 3rem 0.8rem !important;
+        }
+
         div[style*='font-size: 2.1rem'] {
-          font-size: 1.1rem !important;
+          font-size: 1.3rem !important;
+          margin-bottom: 0.8rem !important;
+          padding: 0 0.8rem !important;
         }
+
         div[style*='font-size: 1.15rem'] {
-          font-size: 0.9rem !important;
+          font-size: 0.95rem !important;
+          margin-bottom: 1.5rem !important;
+          padding: 0 1rem !important;
         }
+
         div[style*='gap: 2.5rem'] {
           gap: 1rem !important;
+          padding: 0 0.8rem !important;
         }
+
         div[style*='padding: 2.7rem 2.2rem 2.1rem 2.2rem'] {
-          padding: 1.1rem 0.7rem 1rem 0.7rem !important;
+          padding: 1.5rem 1rem 1.2rem 1rem !important;
+          min-width: 100% !important;
+          max-width: 100% !important;
+          margin: 0 !important;
         }
+
         div[style*='minWidth: 240px'] {
-          min-width: 120px !important;
+          min-width: 100% !important;
+          max-width: 100% !important;
+          margin: 0 !important;
         }
+
         div[style*='maxWidth: 300px'] {
-          max-width: 160px !important;
+          max-width: 100% !important;
+        }
+
+        svg {
+          width: 40px !important;
+          height: 40px !important;
+        }
+
+        div[style*='marginBottom: 1.3rem'] {
+          margin-bottom: 1rem !important;
+        }
+
+        div[style*='fontSize: 1.13rem'] {
+          font-size: 1.1rem !important;
+          margin-bottom: 0.5rem !important;
+        }
+
+        div[style*='fontSize: 1rem'] {
+          font-size: 0.95rem !important;
+          line-height: 1.5 !important;
         }
       }
     `}</style>

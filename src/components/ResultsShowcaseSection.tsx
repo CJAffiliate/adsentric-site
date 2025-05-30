@@ -283,34 +283,131 @@ const ResultsShowcaseSection: React.FC = () => {
 
       <style>{`
         @media (max-width: 900px) {
+          section {
+            padding: 3rem 1rem !important;
+          }
+
           div[style*="font-size: 2.1rem"] {
             font-size: 1.3rem !important;
+            margin-bottom: 2rem !important;
+            padding: 0 1rem !important;
+            line-height: 1.3 !important;
           }
+
           div[style*="width: 320px"] {
-            width: 98vw !important;
-            height: 62vw !important;
-            min-width: 180px !important;
-            min-height: 320px !important;
+            width: 280px !important;
+            height: 560px !important;
+            min-width: 280px !important;
+            min-height: 560px !important;
+            margin: 0 auto !important;
           }
+
           div[style*="gap: 3.5rem"] {
             gap: 2rem !important;
           }
+
           div[style*="font-size: 2.8rem"] {
             font-size: 2.2rem !important;
           }
+
           div[style*="padding: 2.5rem"] {
             padding: 1.5rem !important;
           }
+
+          img {
+            object-fit: contain !important;
+            object-position: center !important;
+            padding: 0.5rem !important;
+          }
+
+          div[style*="flex: '1 1 400px'"] {
+            flex: 1 1 100% !important;
+            max-width: 100% !important;
+            margin-top: 2rem !important;
+          }
         }
+
         @media (max-width: 700px) {
+          section {
+            padding: 2.5rem 0.8rem !important;
+          }
+
           div[style*="gap: 3.5rem"] {
             gap: 1.5rem !important;
           }
+
           div[style*="font-size: 2.8rem"] {
             font-size: 1.8rem !important;
           }
+
           div[style*="font-size: 1.1rem"] {
             font-size: 1rem !important;
+          }
+
+          div[style*="width: 320px"] {
+            width: 240px !important;
+            height: 480px !important;
+            min-width: 240px !important;
+            min-height: 480px !important;
+          }
+
+          div[style*="flex: '1 1 400px'"] {
+            flex: 1 1 100% !important;
+            max-width: 100% !important;
+            margin-top: 1.5rem !important;
+          }
+
+          div[style*="padding: 2.5rem"] {
+            padding: 1.2rem !important;
+          }
+
+          div[style*="fontSize: 1.05rem"] {
+            font-size: 0.95rem !important;
+            line-height: 1.5 !important;
+          }
+
+          div[style*="marginBottom: 1.5rem"] {
+            margin-bottom: 1rem !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          section {
+            padding: 2rem 0.6rem !important;
+          }
+
+          div[style*="font-size: 2.1rem"] {
+            font-size: 1.2rem !important;
+            margin-bottom: 1.5rem !important;
+            padding: 0 0.6rem !important;
+          }
+
+          div[style*="width: 320px"] {
+            width: 220px !important;
+            height: 440px !important;
+            min-width: 220px !important;
+            min-height: 440px !important;
+          }
+
+          div[style*="font-size: 2.8rem"] {
+            font-size: 1.6rem !important;
+          }
+
+          div[style*="font-size: 1.1rem"] {
+            font-size: 0.9rem !important;
+          }
+
+          div[style*="padding: 2.5rem"] {
+            padding: 1rem !important;
+          }
+
+          div[style*="fontSize: 1.05rem"] {
+            font-size: 0.9rem !important;
+            line-height: 1.4 !important;
+          }
+
+          div[style*="marginBottom: 1.5rem"] {
+            margin-bottom: 0.8rem !important;
           }
         }
       `}</style>

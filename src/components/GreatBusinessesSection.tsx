@@ -218,52 +218,139 @@ const GreatBusinessesSection: React.FC = () => (
         border-top: 3px solid #F8E6EA;
         z-index: 0;
       }
+
       @media (max-width: 900px) {
+        section {
+          padding: 3.5rem 1rem !important;
+        }
+
         div[style*='font-size: 2.1rem'] {
           font-size: 1.5rem !important;
+          margin-bottom: 1rem !important;
+          padding: 0 1rem !important;
+          line-height: 1.3 !important;
         }
+
         div[style*='font-size: 1.15rem'] {
           font-size: 1rem !important;
+          margin-bottom: 2rem !important;
+          padding: 0 1.5rem !important;
+          line-height: 1.5 !important;
         }
+
         div[style*='gap: 2.5rem'] {
           gap: 1.5rem !important;
+          padding: 0 1rem !important;
         }
+
         div[style*='padding: 2.5rem 1.7rem 2.1rem 1.7rem'] {
           padding: 1.5rem 1rem 1.2rem 1rem !important;
+          min-width: 280px !important;
+          max-width: 100% !important;
+        }
+
+        .gb-connector {
+          display: none;
         }
       }
+
       @media (max-width: 700px) {
-        .gb-connector {
-          left: 50%;
-          right: auto;
-          top: 8%;
-          bottom: 8%;
-          width: 0;
-          height: 84%;
-          border-top: none;
-          border-left: 3px solid #F8E6EA;
+        section {
+          padding: 3rem 0.8rem !important;
         }
+
         div[style*='flex-direction: row'] {
           flex-direction: column !important;
           gap: 1.2rem !important;
+          padding: 0 0.8rem !important;
         }
+
         div[style*='minWidth: 220px'] {
           min-width: 0 !important;
+          width: 100% !important;
+          margin: 0 !important;
         }
+
         div[style*='maxWidth: 320px'] {
           max-width: 100% !important;
         }
+
         div[style*='padding: 2.5rem 1.7rem 2.1rem 1.7rem'] {
-          padding: 1.1rem 0.7rem 1rem 0.7rem !important;
+          padding: 1.5rem 1.2rem 1.2rem 1.2rem !important;
         }
-        button[style*='padding: 1.1rem 2.2rem'] {
-          width: 100% !important;
-          font-size: 1rem !important;
-          padding: 0.9rem !important;
+
+        div[style*='font-size: 2.1rem'] {
+          font-size: 1.4rem !important;
+          padding: 0 0.8rem !important;
+          margin-bottom: 0.8rem !important;
         }
+
+        div[style*='font-size: 1.15rem'] {
+          font-size: 0.95rem !important;
+          padding: 0 1rem !important;
+          margin-bottom: 1.5rem !important;
+        }
+
         svg {
+          width: 36px !important;
+          height: 36px !important;
+        }
+
+        div[style*='marginBottom: 1.1rem'] {
+          margin-bottom: 0.8rem !important;
+        }
+
+        div[style*='fontSize: 1.13rem'] {
+          font-size: 1.1rem !important;
+          margin-bottom: 0.5rem !important;
+        }
+
+        div[style*='fontSize: 1rem'] {
+          font-size: 0.95rem !important;
+          line-height: 1.5 !important;
+        }
+
+        button[style*='padding: 1.1rem 2.2rem'] {
+          padding: 0.9rem 1.8rem !important;
+          font-size: 1rem !important;
+          width: 100% !important;
+          max-width: 280px !important;
+        }
+
+        button svg {
           width: 32px !important;
           height: 14px !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        section {
+          padding: 2.5rem 0.6rem !important;
+        }
+
+        div[style*='font-size: 2.1rem'] {
+          font-size: 1.3rem !important;
+          padding: 0 0.6rem !important;
+        }
+
+        div[style*='font-size: 1.15rem'] {
+          font-size: 0.9rem !important;
+          padding: 0 0.8rem !important;
+        }
+
+        div[style*='padding: 2.5rem 1.7rem 2.1rem 1.7rem'] {
+          padding: 1.2rem 1rem 1rem 1rem !important;
+        }
+
+        button[style*='padding: 1.1rem 2.2rem'] {
+          padding: 0.8rem 1.5rem !important;
+          font-size: 0.95rem !important;
+          max-width: 240px !important;
+        }
+
+        button svg {
+          width: 28px !important;
+          height: 12px !important;
         }
       }
     `}</style>

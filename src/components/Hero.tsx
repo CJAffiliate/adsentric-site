@@ -186,59 +186,87 @@ const Hero: React.FC = () => {
         <style>
           {`
             @media (max-width: 768px) {
+              section {
+                min-height: 80vh !important;
+                padding: 2rem 1rem !important;
+              }
+
               .hero-headline {
-                font-size: 2.2rem !important;
-                line-height: 1.2 !important;
-                padding: 0 0.5rem;
+                font-size: 1.8rem !important;
+                line-height: 1.3 !important;
+                padding: 0 0.5rem !important;
+                margin-bottom: 1rem !important;
               }
 
               .hero-subheadline {
-                font-size: 1.1rem !important;
-                padding: 0 1rem;
-                margin-bottom: 1.8rem !important;
+                font-size: 1rem !important;
+                padding: 0 1rem !important;
+                margin-bottom: 1.5rem !important;
+                line-height: 1.5 !important;
               }
 
               button {
                 padding: 0.9rem 1.8rem !important;
-                font-size: 1rem !important;
-                min-width: 280px;
-              }
-
-              button svg {
-                width: 32px;
-                height: 14px;
-              }
-
-              button span:last-child {
-                font-size: 0.8rem !important;
-              }
-            }
-
-            @media (max-width: 480px) {
-              .hero-headline {
-                font-size: 1.8rem !important;
-                padding: 0 0.3rem;
-              }
-
-              .hero-subheadline {
-                font-size: 1rem !important;
-                padding: 0 0.8rem;
-                margin-bottom: 1.5rem !important;
-              }
-
-              button {
-                padding: 0.8rem 1.5rem !important;
                 font-size: 0.95rem !important;
-                min-width: 260px;
+                min-width: 240px !important;
+                max-width: 90% !important;
+                margin: 0 auto !important;
               }
 
               button svg {
-                width: 28px;
-                height: 12px;
+                width: 28px !important;
+                height: 12px !important;
               }
 
               button span:last-child {
                 font-size: 0.75rem !important;
+              }
+
+              .floating-shapes {
+                opacity: 0.5 !important;
+              }
+
+              .shape {
+                --size: calc(var(--original-size) * 0.7) !important;
+              }
+            }
+
+            @media (max-width: 480px) {
+              section {
+                min-height: 70vh !important;
+                padding: 1.5rem 0.8rem !important;
+              }
+
+              .hero-headline {
+                font-size: 1.5rem !important;
+                padding: 0 0.3rem !important;
+                margin-bottom: 0.8rem !important;
+              }
+
+              .hero-subheadline {
+                font-size: 0.95rem !important;
+                padding: 0 0.8rem !important;
+                margin-bottom: 1.2rem !important;
+              }
+
+              button {
+                padding: 0.8rem 1.5rem !important;
+                font-size: 0.9rem !important;
+                min-width: 220px !important;
+                max-width: 85% !important;
+              }
+
+              button svg {
+                width: 24px !important;
+                height: 10px !important;
+              }
+
+              button span:last-child {
+                font-size: 0.7rem !important;
+              }
+
+              .shape {
+                --size: calc(var(--original-size) * 0.5) !important;
               }
             }
 
@@ -269,6 +297,7 @@ const Hero: React.FC = () => {
               animation: float var(--duration) ease-in-out infinite;
               animation-delay: var(--delay);
               filter: blur(0.5px);
+              --original-size: var(--size);
             }
 
             .circle {

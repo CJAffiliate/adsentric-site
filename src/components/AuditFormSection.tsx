@@ -474,19 +474,22 @@ const AuditFormSection: React.FC = () => {
             div[style*="fontSize: '2.1rem'"] {
               font-size: 1.8rem !important;
               margin-bottom: 2rem !important;
+              padding: 0 1rem !important;
             }
 
             div[style*="width: '100%'"] {
-              padding: 0 0.5rem !important;
+              padding: 0 1rem !important;
             }
 
             form {
               padding: 1.5rem !important;
+              margin: 0 1rem !important;
             }
 
             div[style*="fontSize: '1rem'"] {
               font-size: 0.9rem !important;
               margin-bottom: 1.5rem !important;
+              padding: 0 0.5rem !important;
             }
 
             div[style*="marginBottom: '2.5rem'"] {
@@ -506,11 +509,51 @@ const AuditFormSection: React.FC = () => {
               width: 100% !important;
               padding: 0.9rem !important;
               font-size: 1rem !important;
+              margin: 0 0.5rem !important;
             }
 
             svg {
               width: 32px !important;
               height: 14px !important;
+            }
+          }
+
+          @media (max-width: 480px) {
+            section {
+              padding: 2.5rem 0.8rem !important;
+            }
+
+            div[style*="fontSize: '2.1rem'"] {
+              font-size: 1.6rem !important;
+              margin-bottom: 1.8rem !important;
+              padding: 0 0.8rem !important;
+            }
+
+            div[style*="width: '100%'"] {
+              padding: 0 0.8rem !important;
+            }
+
+            form {
+              padding: 1.2rem !important;
+              margin: 0 0.8rem !important;
+            }
+
+            div[style*="fontSize: '1rem'"] {
+              font-size: 0.85rem !important;
+              margin-bottom: 1.2rem !important;
+              padding: 0 0.4rem !important;
+            }
+
+            input, textarea {
+              padding: 0.7rem !important;
+              font-size: 0.9rem !important;
+            }
+
+            button[style*="width: '400px'"] {
+              width: 100% !important;
+              padding: 0.8rem !important;
+              font-size: 0.95rem !important;
+              margin: 0 0.4rem !important;
             }
           }
         `}

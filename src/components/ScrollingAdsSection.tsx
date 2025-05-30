@@ -125,21 +125,26 @@ const ScrollingAdsSection: React.FC = () => {
             
             @media (max-width: 768px) {
               section {
-                padding: 3rem 0 2rem 0 !important;
+                padding: 3rem 1rem !important;
               }
               
               div[style*="fontSize: '2rem'"] {
                 font-size: 1.6rem !important;
                 margin-bottom: 1rem !important;
+                padding: 0 1rem !important;
+                line-height: 1.3 !important;
               }
               
               div[style*="fontSize: '1.15rem'"] {
                 font-size: 1rem !important;
                 margin-bottom: 1.5rem !important;
+                padding: 0 1.5rem !important;
+                line-height: 1.5 !important;
               }
               
               div[style*="height: '120px'"] {
                 height: 100px !important;
+                margin-bottom: 1rem !important;
               }
               
               div[style*="minWidth: '120px'"] {
@@ -149,27 +154,45 @@ const ScrollingAdsSection: React.FC = () => {
                 margin: 0 0.8rem !important;
               }
 
+              img {
+                object-fit: contain !important;
+                object-position: center !important;
+                padding: 0.5rem !important;
+              }
+
               button[style*="padding: '1.1rem 2.2rem'"] {
                 padding: 0.9rem 1.8rem !important;
                 font-size: 1rem !important;
+                width: 100% !important;
+                max-width: 280px !important;
+              }
+
+              button svg {
+                width: 32px !important;
+                height: 14px !important;
               }
             }
             
             @media (max-width: 480px) {
               section {
-                padding: 2.5rem 0 1.5rem 0 !important;
+                padding: 2.5rem 0.8rem !important;
               }
               
               div[style*="fontSize: '2rem'"] {
                 font-size: 1.4rem !important;
+                margin-bottom: 0.8rem !important;
+                padding: 0 0.8rem !important;
               }
               
               div[style*="fontSize: '1.15rem'"] {
                 font-size: 0.9rem !important;
+                margin-bottom: 1.2rem !important;
+                padding: 0 1rem !important;
               }
               
               div[style*="height: '120px'"] {
                 height: 90px !important;
+                margin-bottom: 0.8rem !important;
               }
               
               div[style*="minWidth: '120px'"] {
@@ -179,9 +202,21 @@ const ScrollingAdsSection: React.FC = () => {
                 margin: 0 0.6rem !important;
               }
 
+              img {
+                object-fit: contain !important;
+                object-position: center !important;
+                padding: 0.4rem !important;
+              }
+
               button[style*="padding: '1.1rem 2.2rem'"] {
                 padding: 0.8rem 1.5rem !important;
                 font-size: 0.95rem !important;
+                max-width: 240px !important;
+              }
+
+              button svg {
+                width: 28px !important;
+                height: 12px !important;
               }
             }
           `}

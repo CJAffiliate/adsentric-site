@@ -4,6 +4,8 @@
   transform: translateY(10px);
   will-change: opacity, transform;
   animation: fadeIn 0.5s ease-out forwards;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .animate-slide-up {
@@ -11,6 +13,8 @@
   transform: translateY(20px);
   will-change: opacity, transform;
   animation: slideUp 0.5s ease-out forwards;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .animate-slide-in-left {
@@ -18,6 +22,8 @@
   transform: translateX(-20px);
   will-change: opacity, transform;
   animation: slideInLeft 0.5s ease-out forwards;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .animate-slide-in-right {
@@ -25,6 +31,8 @@
   transform: translateX(20px);
   will-change: opacity, transform;
   animation: slideInRight 0.5s ease-out forwards;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .animate-scale-in {
@@ -32,6 +40,8 @@
   transform: scale(0.95);
   will-change: opacity, transform;
   animation: scaleIn 0.5s ease-out forwards;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 /* Stagger utility */
@@ -39,6 +49,8 @@
   opacity: 0;
   transform: translateY(10px);
   will-change: opacity, transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .animate-stagger > *:nth-child(1) { animation: fadeIn 0.5s ease-out 0.1s forwards; }
@@ -73,7 +85,7 @@
   to { opacity: 1; transform: scale(1); }
 }
 
-/* Reduce motion */
+/* Reduce motion and optimize for mobile */
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-in,
   .animate-slide-up,
@@ -85,4 +97,12 @@
     opacity: 1 !important;
     transform: none !important;
   }
+}
+
+@media (max-width: 768px) {
+  .animate-stagger > *:nth-child(1) { animation: fadeIn 0.4s ease-out 0.05s forwards; }
+  .animate-stagger > *:nth-child(2) { animation: fadeIn 0.4s ease-out 0.1s forwards; }
+  .animate-stagger > *:nth-child(3) { animation: fadeIn 0.4s ease-out 0.15s forwards; }
+  .animate-stagger > *:nth-child(4) { animation: fadeIn 0.4s ease-out 0.2s forwards; }
+  .animate-stagger > *:nth-child(5) { animation: fadeIn 0.4s ease-out 0.25s forwards; }
 } 

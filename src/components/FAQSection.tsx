@@ -190,7 +190,7 @@ const FAQSection: React.FC = () => {
           
           @media (max-width: 768px) {
             section {
-              padding: 4rem 0 !important;
+              padding: 4rem 1rem !important;
             }
 
             div[style*="fontSize: '2.1rem'"] {
@@ -206,22 +206,30 @@ const FAQSection: React.FC = () => {
             button[style*="padding: '1.5rem'"] {
               padding: 1.2rem !important;
               font-size: 1rem !important;
+              text-align: left !important;
             }
 
             div[style*="fontSize: '1rem'"] {
               font-size: 0.95rem !important;
               line-height: 1.5 !important;
+              padding: 0 1rem !important;
             }
 
             svg[width="24"] {
               width: 20px !important;
               height: 20px !important;
+              flex-shrink: 0 !important;
+            }
+
+            .faq-item {
+              margin: 0 0 1rem 0 !important;
+              border-radius: 12px !important;
             }
           }
           
           @media (max-width: 480px) {
             section {
-              padding: 3rem 0 !important;
+              padding: 3rem 0.8rem !important;
             }
 
             div[style*="fontSize: '2.1rem'"] {
@@ -237,20 +245,24 @@ const FAQSection: React.FC = () => {
             button[style*="padding: '1.5rem'"] {
               padding: 1rem !important;
               font-size: 0.95rem !important;
+              text-align: left !important;
             }
 
             div[style*="fontSize: '1rem'"] {
               font-size: 0.9rem !important;
               line-height: 1.45 !important;
+              padding: 0 0.8rem !important;
             }
 
             svg[width="24"] {
               width: 18px !important;
               height: 18px !important;
+              flex-shrink: 0 !important;
             }
 
             .faq-item {
-              margin-bottom: 0.8rem !important;
+              margin: 0 0 0.8rem 0 !important;
+              border-radius: 10px !important;
             }
           }
         `}
