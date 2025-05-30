@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import Logo from '../assets/Logo.png';
+import { animationClasses } from '../utils/animations';
 import HighlightBox from './HighlightBox';
-import logo from '../assets/logo.png';
-import { motion } from 'framer-motion';
 
 const NavBar: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
@@ -36,7 +39,7 @@ const NavBar: React.FC = () => {
         }}
       >
         <motion.img
-          src={logo}
+          src={Logo}
           alt="Adsentric"
           style={{
             height: '32px',
