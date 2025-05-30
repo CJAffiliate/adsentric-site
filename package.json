@@ -7,10 +7,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "rimraf dist && tsc --noEmit && vite build",
-    "preview": "vite preview",
-    "typecheck": "tsc --noEmit",
-    "clean": "rimraf dist"
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "keywords": [
     "marketing",
@@ -21,17 +19,14 @@
   "license": "ISC",
   "description": "Adsentric - Marketing Agency Landing Page",
   "dependencies": {
-    "@types/node": "^20.11.19",
-    "framer-motion": "^11.0.5",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "typescript": "^5.3.3"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.5",
     "@vitejs/plugin-react": "^4.2.1",
-    "rimraf": "^5.0.5",
+    "typescript": "^5.3.3",
     "vite": "^5.1.0"
   }
 }
