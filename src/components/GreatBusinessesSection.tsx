@@ -2,7 +2,13 @@ import React from 'react';
 import HighlightBox from './HighlightBox';
 import { animationClasses } from '../utils/animations';
 
-const bullets = [
+interface BusinessCard {
+  icon: React.ReactNode;
+  heading: string;
+  text: string;
+}
+
+const bullets: BusinessCard[] = [
   {
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -111,7 +117,7 @@ const GreatBusinessesSection: React.FC = () => (
           zIndex: 1,
         }}
       >
-        {bullets.map((b, i) => (
+        {bullets.map((b) => (
           <div
             key={b.heading}
             className={animationClasses.fadeIn}

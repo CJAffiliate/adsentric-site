@@ -13,13 +13,6 @@ const importImage = (path: string) => {
 
 const adImages = Array.from({ length: 8 }, (_, i) => importImage(`${i + 1}.png`));
 
-const scrollToAuditForm = () => {
-  const element = document.getElementById('audit-form');
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
-  }
-};
-
 const ScrollingAdsSection: React.FC = () => {
   return (
     <>

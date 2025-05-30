@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, FormEvent } from 'react';
 import HighlightBox from './HighlightBox';
 
 interface FormData {
@@ -28,7 +28,7 @@ const AuditFormSection: React.FC = () => {
     setCurrentStep(filledFields);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     setError(null);
@@ -379,6 +379,7 @@ const AuditFormSection: React.FC = () => {
             <HighlightBox>
               <button
                 type="submit"
+                disabled={isSubmitting}
                 style={{
                   width: '400px',
                   background: 'none',
@@ -389,7 +390,7 @@ const AuditFormSection: React.FC = () => {
                   fontSize: '1.1rem',
                   padding: '1.1rem',
                   borderRadius: '6px',
-                  cursor: 'pointer',
+                  cursor: isSubmitting ? 'not-allowed' : 'pointer',
                   outline: 'none',
                   boxShadow: 'none',
                   display: 'flex',
@@ -397,18 +398,31 @@ const AuditFormSection: React.FC = () => {
                   justifyContent: 'center',
                   gap: '0.5rem',
                   fontFamily: 'Inter, sans-serif',
+                  opacity: isSubmitting ? 0.7 : 1,
                 }}
               >
                 <span style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                  Request my audit
-                  <svg width="38" height="16" viewBox="0 0 38 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0 8H36" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
-                    <path d="M29 2L36 8L29 14" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+                  {isSubmitting ? 'Submitting...' : 'Request my audit'}
+                  {!isSubmitting && (
+                    <svg width="38" height="16" viewBox="0 0 38 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0 8H36" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
+                      <path d="M29 2L36 8L29 14" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  )}
                 </span>
               </button>
             </HighlightBox>
           </div>
+          {error && (
+            <div style={{ 
+              color: '#7A0011', 
+              textAlign: 'center', 
+              marginTop: '1rem',
+              fontSize: '0.9rem'
+            }}>
+              {error}
+            </div>
+          )}
         </form>
       </div>
 

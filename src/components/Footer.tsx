@@ -1,5 +1,4 @@
 import React from 'react';
-import HighlightBox from './HighlightBox';
 import logo from '../assets/logo.png';
 
 const Footer: React.FC = () => {

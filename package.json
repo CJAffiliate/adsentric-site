@@ -1,20 +1,22 @@
 {
-  "name": "landing-page",
+  "name": "adsentric",
   "version": "1.0.0",
-  "type": "module",
+  "private": true,
+
   "engines": {
     "node": ">=18.0.0"
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "tsc && vite build",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "clean": "rimraf dist"
   },
-  "keywords": [],
+  "keywords": ["marketing", "landing-page", "react"],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Adsentric - Marketing Agency Landing Page",
   "dependencies": {
     "@types/node": "^20.11.19",
     "@types/react": "^18.2.55",

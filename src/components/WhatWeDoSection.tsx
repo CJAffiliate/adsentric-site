@@ -2,7 +2,22 @@ import React from 'react';
 import { animationClasses } from '../utils/animations';
 import HighlightBox from './HighlightBox';
 
-const services = [
+interface ServiceCard {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  benefit: string;
+}
+
+const services: ServiceCard[] = [
+  {
+    icon: <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 2C8.268 2 2 8.268 2 16C2 23.732 8.268 30 16 30C23.732 30 30 23.732 30 16C30 8.268 23.732 2 16 2ZM16 28C9.373 28 4 22.627 4 16C4 9.373 9.373 4 16 4C22.627 4 28 9.373 28 16C28 22.627 22.627 28 16 28Z" fill="#7A0011"/>
+    </svg>,
+    title: "Landing Page Design",
+    description: "Create high-converting landing pages that turn visitors into customers.",
+    benefit: "Increase your conversion rate by up to 300% with our proven landing page designs."
+  },
   {
     title: 'Paid Ads',
     icon: (
@@ -12,6 +27,7 @@ const services = [
         <circle cx="29" cy="19" r="2.5" fill="#fff" />
       </svg>
     ),
+    description: "Create and optimize high-performing ad campaigns across multiple platforms.",
     benefit: 'Drive the RIGHT kind of traffic, through world class ad creatives'
   },
   {
@@ -24,6 +40,7 @@ const services = [
         <rect x="11" y="22" width="7" height="2.5" rx="1.25" fill="#fff" fillOpacity="0.32" />
       </svg>
     ),
+    description: "Design and develop custom landing pages optimized for conversion.",
     benefit: 'This traffic then lands to our bespoke landing pages (like this one)'
   },
   {
@@ -35,6 +52,7 @@ const services = [
         <rect x="13" y="24" width="12" height="2" rx="1" fill="#fff" fillOpacity="0.32" />
       </svg>
     ),
+    description: "Set up and manage customer relationship management systems.",
     benefit: 'We ensure leads and prospects are nurtured into paying customers'
   },
   {
@@ -45,6 +63,7 @@ const services = [
         <path d="M9 14l10 8 10-8" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
+    description: "Create automated email sequences to re-engage potential customers.",
     benefit: 'Smart email flows that re-engage and convert.'
   }
 ];
@@ -109,7 +128,7 @@ const WhatWeDoSection: React.FC = () => (
         margin: '0 auto',
       }}
     >
-      {services.map((service, i) => (
+      {services.map((service) => (
         <div
           key={service.title}
           className={animationClasses.fadeIn}
